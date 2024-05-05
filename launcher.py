@@ -1,9 +1,16 @@
 import os
 import cv2
 
-import pinker
-import threshold_pinker
-import blurrer
+import scripts.mask.gay as gay
+import scripts.mask.trans as trans
+
+import scripts.filter.pinker as pinker
+import scripts.filter.threshold_pinker as threshold_pinker
+import scripts.filter.blurrer as blurrer
+
+
+import scripts.filter.mask_pinker as mask_pinker
+import scripts.filter.threshold_mask_pinker as mask_threshold_pinker
 
 # configs
 input_image = "input.jpg"
@@ -29,6 +36,46 @@ filters = [
     {
         "name": "threshold_blurrer",
         "scripts": [threshold_pinker, blurrer]
+    },
+    {
+        "name": "gay",
+        "scripts": [gay, mask_pinker]
+    },
+    {
+        "name": "gay_threshold",
+        "scripts": [gay, mask_threshold_pinker]
+    },
+    {
+        "name": "gay_blurrer",
+        "scripts": [gay, mask_pinker, blurrer]
+    },
+    {
+        "name": "gay_threshold_blurrer",
+        "scripts": [gay, mask_threshold_pinker, blurrer]
+    },
+    {
+        "name": "gay_threshold_pinked_blurrer",
+        "scripts": [gay, mask_threshold_pinker, threshold_pinker, blurrer]
+    },
+    {
+        "name": "trans",
+        "scripts": [trans, mask_pinker]
+    },
+    {
+        "name": "trans_threshold",
+        "scripts": [trans, mask_threshold_pinker]
+    },
+    {
+        "name": "trans_blurrer",
+        "scripts": [trans, mask_pinker, blurrer]
+    },
+    {
+        "name": "trans_threshold_blurrer",
+        "scripts": [trans, mask_threshold_pinker, blurrer]
+    },
+    {
+        "name": "trans_threshold_pinked_blurrer",
+        "scripts": [trans, mask_threshold_pinker, threshold_pinker, blurrer]
     }
 ]
 

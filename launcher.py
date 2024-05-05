@@ -7,7 +7,7 @@ import scripts.mask.trans as trans
 import scripts.filter.pinker as pinker
 import scripts.filter.threshold_pinker as threshold_pinker
 import scripts.filter.blurrer as blurrer
-
+import scripts.filter.darker as darker
 
 import scripts.filter.mask_pinker as mask_pinker
 import scripts.filter.threshold_mask_pinker as mask_threshold_pinker
@@ -76,6 +76,10 @@ filters = [
     {
         "name": "trans_threshold_pinked_blurrer",
         "scripts": [trans, mask_threshold_pinker, threshold_pinker, blurrer]
+    },
+    {
+        "name": "trans_threshold_pinked_blurrer_darker",
+        "scripts": [trans, mask_threshold_pinker, threshold_pinker, blurrer, darker]
     }
 ]
 

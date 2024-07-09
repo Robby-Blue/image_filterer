@@ -18,23 +18,23 @@ output_type = "png"
 
 filters = [
     {
-        "name": "pinker",
+        "name": "pinked",
         "scripts": [pinker]
     },
     {
-        "name": "threshold_pinker",
+        "name": "threshold_pinked",
         "scripts": [threshold_pinker]
     },
     {
-        "name": "blurrer",
+        "name": "blurred",
         "scripts": [blurrer]
     },
     {
-        "name": "pink_blurrer",
+        "name": "pink_blurred",
         "scripts": [pinker, blurrer]
     },
     {
-        "name": "threshold_blurrer",
+        "name": "threshold_blurred",
         "scripts": [threshold_pinker, blurrer]
     },
     {
@@ -46,15 +46,15 @@ filters = [
         "scripts": [gay, mask_threshold_pinker]
     },
     {
-        "name": "gay_blurrer",
+        "name": "gay_blurred",
         "scripts": [gay, mask_pinker, blurrer]
     },
     {
-        "name": "gay_threshold_blurrer",
+        "name": "gay_threshold_blurred",
         "scripts": [gay, mask_threshold_pinker, blurrer]
     },
     {
-        "name": "gay_threshold_pinked_blurrer",
+        "name": "gay_threshold_pinked_blurred",
         "scripts": [gay, mask_threshold_pinker, threshold_pinker, blurrer]
     },
     {
@@ -66,19 +66,19 @@ filters = [
         "scripts": [trans, mask_threshold_pinker]
     },
     {
-        "name": "trans_blurrer",
+        "name": "trans_blurred",
         "scripts": [trans, mask_pinker, blurrer]
     },
     {
-        "name": "trans_threshold_blurrer",
+        "name": "trans_threshold_blurred",
         "scripts": [trans, mask_threshold_pinker, blurrer]
     },
     {
-        "name": "trans_threshold_pinked_blurrer",
+        "name": "trans_threshold_pinked_blurred",
         "scripts": [trans, mask_threshold_pinker, threshold_pinker, blurrer]
     },
     {
-        "name": "trans_threshold_pinked_blurrer_darker",
+        "name": "trans_threshold_pinked_blurred_darked",
         "scripts": [trans, mask_threshold_pinker, threshold_pinker, blurrer, darker]
     }
 ]

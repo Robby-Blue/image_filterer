@@ -1,5 +1,4 @@
-
-import cv2
+import numpy as np
 
 def run_filter(r):
     image, mask = r
@@ -7,23 +6,13 @@ def run_filter(r):
     m_height, m_width, _ = mask.shape
     height, width, _ = image.shape
 
-    # TODO: use something faster
-    for y in range(height):
-        for x in range(width):
-            pixel = image[y, x]
-
-            mask_x = int(x*m_height/height)
-            mask_y = int(y*m_width/width)
-            m_pixel = mask[mask_y, mask_x]
-
-            blueness = (pixel[0])
-            mult = blueness/255
-            
-            pink = [m_pixel[0]*mult, m_pixel[1]*mult, m_pixel[2]*mult]
-
-            image[y, x] = pink
-
+    mask_x = (np.arange(width) * m_width / width).astype(int)
+    mask_y = (np.arange(height) * m_height / height).astype(int)
+    
+    mask_coords_x, mask_coords_y = np.meshgrid(mask_x, mask_y)
+    m_pixel = mask[mask_coords_y, mask_coords_x]
+    blueness = image[:, :, 0].astype(float) / 255
+    pink = m_pixel * blueness[:, :, np.newaxis]
+    image[:, :] = pink.astype(np.uint8)
+    
     return image
-
-if __name__ == "__main__":
-    cv2.imwrite("test.png", run_filter(cv2.imread("input.jpg")))
